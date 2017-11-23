@@ -1,9 +1,12 @@
-#name {
+button {
+    z-index: 10;
+}
+
+#creator {
     position: absolute;
     top: 0;
     left: 0;
     padding: 10vh;
-    
 }
 
 #next {
@@ -18,4 +21,9 @@
     bottom: 0;
     right: 0;
     padding: 10vh 20vh;    
+}
+
+#video, #image {
+    height: 1080px;
+    width: 1920px;
 }
