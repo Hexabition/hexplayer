@@ -4,6 +4,10 @@ class MediaController {
         this.position = 0;
 
         this.video = document.getElementById(videoId);
+        this.video.addEventListener('ended', () => {
+            this.next();
+        }, false);
+
         this.image = document.getElementById(imageId);
         this.title = document.getElementById(titleId);
         this.creator = document.getElementById(creatorId);
@@ -14,8 +18,7 @@ class MediaController {
     }
     previous() {
         this.position = (this.position - 1);
-        if (this.position < 0) { this.position = this.media.length }
-
+        if (this.position < 0) { this.position = this.media.length - 1}
         this.show();
     }
     show() {
