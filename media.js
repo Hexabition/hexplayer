@@ -12,6 +12,10 @@ class MediaController {
         this.title = document.getElementById(titleId);
         this.creator = document.getElementById(creatorId);
     }
+    reset() {
+        this.image.src = '';
+        this.video.src = '';
+    }
     next() {
         this.position = (this.position + 1) % this.media.length;
         this.show();
@@ -22,6 +26,7 @@ class MediaController {
         this.show();
     }
     show() {
+        this.reset();
         let currentItem = this.media[this.position];
         let isVideo = (currentItem.type === MEDIA_TYPES.VIDEO)
         let element = isVideo ? this.video : this.image
@@ -50,9 +55,21 @@ const MEDIA = [
         type: MEDIA_TYPES.VIDEO
     },
     {
+        creator: 'Django IBM Müller',
+        title: 'IBM',
+        path: 'testimages/ibm.png',
+        type: MEDIA_TYPES.IMAGE
+    },
+    {
         creator: 'Django shitty Müller',
         title: 'Shitty Footage',
         path: 'testvideos/shitfootage.mp4',
         type: MEDIA_TYPES.VIDEO
-    }
+    },
+    {
+        creator: 'Django Dickbutt Müller',
+        title: 'Dickbutt',
+        path: 'testimages/dickbutt.png',
+        type: MEDIA_TYPES.IMAGE
+    },
 ]

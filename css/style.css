@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+}
+
 button {
     z-index: 10;
 }
@@ -24,6 +28,7 @@ button {
 }
 
 #video, #image {
+    position: absolute;
     height: 1080px;
     width: 1920px;
 }
