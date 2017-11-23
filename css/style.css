@@ -1,0 +1,21 @@
+#name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10vh;
+    
+}
+
+#next {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10vh 20vh;
+}
+
+#previous {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10vh 20vh;    
+}
