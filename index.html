@@ -9,14 +9,19 @@
     <script src="media.js"></script>
 </head>
 <body>
-    <name id="creator">Djano Müller</name>
-    <name id="title">Djano Müller</name>
+    <div id="player">
+        <div id="player-controls">
+            <name id="creator">Djano Müller</name>
+            <name id="title">Djano Müller</name>
+            <button id="next" onclick="controller.next()">Next</button>
+            <button id="previous" onclick="controller.previous()">Previous</button>
+        </div>
 
-    <button id="next" onclick="controller.next()">Next</button>
-    <button id="previous" onclick="controller.previous()">Previous</button>
-
-    <video id="video"></video>
-    <img id="image"></img>
+        <div id="player-window">
+            <video id="video"></video>
+            <img id="image"></img>
+        </div>
+    </div>
 </body>
     <script>
         const controller = new MediaController(MEDIA, 'video', 'image', 'creator', 'title');
