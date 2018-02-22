@@ -16,19 +16,26 @@ button {
 #next {
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     padding: 10vh 20vh;
 }
 
 #previous {
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
     padding: 10vh 20vh;    
 }
 
 #video, #image {
     position: absolute;
-    height: 1080px;
-    width: 1920px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+.active {
+    display: block !important;
 }
