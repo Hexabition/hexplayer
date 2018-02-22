@@ -2,6 +2,11 @@
     margin: 0;
 }
 
+body {
+    background-color: black;
+    height: 100vh
+}
+
 button {
     z-index: 10;
 }
@@ -16,26 +21,54 @@ button {
 #next {
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
     padding: 10vh 20vh;
 }
 
 #previous {
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     padding: 10vh 20vh;    
 }
 
 #video, #image {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: none;
+    height: 1152px;
+    width: 2048px;
 }
 
-.active {
-    display: block !important;
+#player-controls {
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+
+#player-window {
+}
+
+#player-parent {
+}
+
+.home #player {
+    display: none
+}
+
+.list-name {
+    text-align: center
+}
+
+#menu-list {
+    height: 100vh
+}
+
+.columns.is-vcentered {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.list-creator-image {
+    width: 20vh;
+    height: auto
 }
