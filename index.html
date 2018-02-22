@@ -6,9 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>hexplayer</title>
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <script src="media.js"></script>
 </head>
 <body>
+    <div id="menu">
+        <ul id="menu-list" class="columns is-vcentered is-centered">
+
+        </ul>
+    </div>
     <div id="player">
         <div id="player-controls">
             <name id="creator">Djano Müller</name>
@@ -25,5 +32,6 @@
 </body>
     <script>
         const controller = new MediaController(MEDIA, 'video', 'image', 'creator', 'title');
+        const domhandler = new DOMHandler('menu', 'menu-list','player', 'player-controls')
     </script>
 </html>
