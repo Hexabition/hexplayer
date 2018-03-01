@@ -20,18 +20,20 @@
         <div id="player-controls">
             <name id="creator">Djano Müller</name>
             <name id="title">Djano Müller</name>
-            <button id="next" onclick="controller.next()">Next</button>
-            <button id="previous" onclick="controller.previous()">Previous</button>
+            <button id="home" onclick="domhandler.showMenu()">Home</button>
+            <button id="previous" onclick="controler.previous()">Previous</button>
+
+            <button id="next" onclick="controler.next()">Next</button>
         </div>
 
-        <div id="player-window">
+        <div id="player-window" onclick="domhandler.togglePlayerControls()">
             <video id="video"></video>
             <img id="image"></img>
         </div>
     </div>
 </body>
     <script>
-        const controller = new MediaController(MEDIA, 'video', 'image', 'creator', 'title');
+        const controler = new MediaControler(MEDIA, 'video', 'image', 'creator', 'title');
         const domhandler = new DOMHandler('menu', 'menu-list','player', 'player-controls')
     </script>
 </html>

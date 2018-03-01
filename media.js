@@ -1,4 +1,4 @@
-class MediaController {
+class MediaControler {
     constructor(media, videoId, imageId, titleId, creatorId) {
         this.media = media;
         this.position = 0;
@@ -43,17 +43,17 @@ class MediaController {
     formatData() {
 
     }
-    autoPlayController() {
+    autoPlayControler() {
         
     }
 }
 
 class DOMHandler {
-    constructor(menuId, menuListId, playerID, playerControllerId) {
+    constructor(menuId, menuListId, playerID, playerControlerId) {
         this.menuElement = document.getElementById(menuId)
         this.menuListElement = document.getElementById(menuListId)
         this.playerElement = document.getElementById(playerID)
-        this.playerControlsElement = document.getElementById(playerControllerId)
+        this.playerControlsElement = document.getElementById(playerControlerId)
         media = MEDIA
         this.showMenu()
         this.createMenu()
@@ -84,11 +84,27 @@ class DOMHandler {
         wrapper.innerHTML = COMBINED_ELEMENT_STRING;
         return wrapper;
     }
-    showPlayerControlls(){
+    showPlayerControls(){
         this.playerControlsElement.style.opacity = 1
     }
-    hidePlayerControlls() {
+    hidePlayerControls() {
         this.playerControlsElement.style.opacity = 0
+    }
+    togglePlayerControls() {
+        if(this.playerControlsElement.style.opacity == 1) {
+            this.hidePlayerControls()
+            if(this.hasOwnProperty('hidePlayerTimeout')) {
+                clearTimeout(this.hidePlayerTimeout);
+            }
+        }
+        else {
+            const ctx = this
+            this.showPlayerControls()
+            this.hidePlayerTimeout = setTimeout(function() {
+                console.log(this.hidePlayerTimeout)
+                ctx.hidePlayerControls()
+            }, 3000)
+        }
     }
     select(name) {
         this.hideMenu()
