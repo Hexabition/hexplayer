@@ -2,6 +2,11 @@
     margin: 0;
 }
 
+html {
+    overflow: hidden !important;
+    max-height: 100vh !important;
+}
+
 body {
     background-color: black;
     height: 100vh;
@@ -27,12 +32,11 @@ button {
 
 #home {
     position: absolute;
-    bottom: 0;
+    width: 100%;
     left: 0;
     right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10vh 20vh;
+    bottom: 0;
+    margin: 0 auto;    padding: 10vh 20vh;
 }
 
 #previous {
@@ -78,8 +82,7 @@ button {
 }
 
 #menu-list {
-    width: 100vw;
-    height: 100vh;
+    height: 80vh;
     margin: auto;
 }
 
@@ -90,12 +93,33 @@ button {
   }
 
   .list-creator-image {
-      width: 100%;
-      height: auto
+    width: 50%;
+    margin: auto
   }
   
 img {
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: auto;
+    height: 100%
+
+}
+
+.li {
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+#menu-title {
+    font-size: 8em;
+    text-align: center
+}
+
+#end-screen {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
 }

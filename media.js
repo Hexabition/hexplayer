@@ -17,7 +17,8 @@ class MediaController {
         this.video.src = '';
     }
     next() {
-        this.position = (this.position + 1) % this.media.length;
+        //this.position = (this.position + 1) % this.media.length;
+        this.media = 
         this.show();
     }
     previous() {
@@ -27,7 +28,7 @@ class MediaController {
     }
     show() {
         this.reset();
-        let currentItem = this.media[this.position];
+        let currentItem = this.media
         let isVideo = (currentItem.type === MEDIA_TYPES.VIDEO)
         let element = isVideo ? this.video : this.image
 
@@ -49,7 +50,7 @@ class MediaController {
 }
 
 class DOMHandler {
-    constructor(menuId, menuListId, playerID, playerControllerId) {
+    constructor(menuId, menuListId, playerID, playerControllerId, endScreenId) {
         this.menuElement = document.getElementById(menuId)
         this.menuListElement = document.getElementById(menuListId)
         this.playerElement = document.getElementById(playerID)
@@ -66,7 +67,6 @@ class DOMHandler {
     hideMenu() {
         this.menuElement.style.display = 'none';
         this.playerElement.style.display = 'block';
-        
     }
     createMenu() {
         for(let element of media) {
@@ -79,9 +79,8 @@ class DOMHandler {
         const NAME_ELEMENT_STRING = `<div class="list-name"> ${name} </div>`
         const IMAGE_ELEMENT_STRING = `<div class="list-creator-image"><img src="${imageURL}"></div>`
         const COMBINED_ELEMENT_STRING = LINK_START_ELEMENT_STRING + IMAGE_ELEMENT_STRING + NAME_ELEMENT_STRING + LINK_END_ELEMENT_STRING
-        console.log(COMBINED_ELEMENT_STRING)
         let wrapper = document.createElement('li');
-        wrapper.className += "column";
+        wrapper.className += "column is-half li";
 
         wrapper.innerHTML = COMBINED_ELEMENT_STRING;
         return wrapper;
@@ -118,6 +117,13 @@ class DOMHandler {
     }
     select(name) {
         this.hideMenu()
+        controller.media = MEDIA.find(x => x.creator === name)
+        controller.show()
+
+    }
+
+    showEndScreen() {
+        
     }
     
 }

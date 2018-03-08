@@ -17,8 +17,9 @@
     <script src="js/mqtt.js"></script>
 </head>
 <body>
-    <div id="menu">
-        <ul id="menu-list" class="columns is-vcentered is-centered">
+    <div id="menu" class="container ">
+        <h1 id="menu-title">HEXABITION</h1>
+        <ul id="menu-list" class="columns is-multiline is-vcentered is-centered">
 
         </ul>
     </div>
@@ -34,10 +35,18 @@
             <video id="video"></video>
             <img id="image"></img>
         </div>
+        <div id="end-screen">
+            <div>
+                Next
+            </div>
+            <div>
+                Home
+            </div>
+        </div>
     </div>
 </body>
     <script>
         const controller = new MediaController(MEDIA, 'video', 'image', 'creator', 'title');
-        const domhandler = new DOMHandler('menu', 'menu-list','player', 'player-controls')
+        const domhandler = new DOMHandler('menu', 'menu-list','player', 'player-controls', 'end-screen')
     </script>
 </html>
