@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>hexplayer</title>
     <link rel="stylesheet" href="css/style.css">
@@ -22,12 +24,10 @@
     </div>
     <div id="player">
         <div id="player-controls">
-            <name id="creator">Djano Müller</name>
-            <name id="title">Djano Müller</name>
             <button id="home" onclick="domhandler.showMenu()">Home</button>
-            <button id="previous" onclick="controler.previous()">Previous</button>
+            <button id="previous" onclick="controller.previous()">Previous</button>
 
-            <button id="next" onclick="controler.next()">Next</button>
+            <button id="next" onclick="controller.next()">Next</button>
         </div>
 
         <div id="player-window" onclick="domhandler.togglePlayerControls()">
@@ -37,7 +37,7 @@
     </div>
 </body>
     <script>
-        const controler = new MediaControler(MEDIA, 'video', 'image', 'creator', 'title');
+        const controller = new MediaController(MEDIA, 'video', 'image', 'creator', 'title');
         const domhandler = new DOMHandler('menu', 'menu-list','player', 'player-controls')
     </script>
 </html>

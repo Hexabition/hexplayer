@@ -1,4 +1,4 @@
-class MediaControler {
+class MediaController {
     constructor(media, videoId, imageId, titleId, creatorId) {
         this.media = media;
         this.position = 0;
@@ -37,23 +37,23 @@ class MediaControler {
         if (isVideo) { element.load(); element.play() }
     }
     setStrings(item) {
-        this.title.innerHTML = item.title;
-        this.creator.innerHTML = item.creator;
+        /*this.title.innerHTML = item.title;
+        this.creator.innerHTML = item.creator;*/
     }
     formatData() {
 
     }
-    autoPlayControler() {
+    autoPlayController() {
         
     }
 }
 
 class DOMHandler {
-    constructor(menuId, menuListId, playerID, playerControlerId) {
+    constructor(menuId, menuListId, playerID, playerControllerId) {
         this.menuElement = document.getElementById(menuId)
         this.menuListElement = document.getElementById(menuListId)
         this.playerElement = document.getElementById(playerID)
-        this.playerControlsElement = document.getElementById(playerControlerId)
+        this.playerControlsElement = document.getElementById(playerControllerId)
         media = MEDIA
         this.showMenu()
         this.createMenu()
@@ -61,10 +61,12 @@ class DOMHandler {
     showMenu() {
         this.menuElement.style.display = 'block';
         this.playerElement.style.display = 'none';
+        controller.reset()
     }
     hideMenu() {
         this.menuElement.style.display = 'none';
         this.playerElement.style.display = 'block';
+        
     }
     createMenu() {
         for(let element of media) {
@@ -85,10 +87,18 @@ class DOMHandler {
         return wrapper;
     }
     showPlayerControls(){
+        this.playerControlsElement.style.display = 'block'
+
         this.playerControlsElement.style.opacity = 1
+    
     }
     hidePlayerControls() {
         this.playerControlsElement.style.opacity = 0
+        const ctx = this
+        setTimeout(function() {
+            ctx.playerControlsElement.style.display = 'none'
+        }, 300);
+    
     }
     togglePlayerControls() {
         if(this.playerControlsElement.style.opacity == 1) {
