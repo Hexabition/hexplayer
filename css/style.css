@@ -21,14 +21,24 @@ button {
 #next {
     position: absolute;
     bottom: 0;
+    right: 0;
+    padding: 10vh 20vh;
+}
+
+#home {
+    position: absolute;
+    bottom: 0;
     left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     padding: 10vh 20vh;
 }
 
 #previous {
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
     padding: 10vh 20vh;    
 }
 
@@ -40,11 +50,20 @@ button {
 
 #player-controls {
     position: absolute;
+    display: none;
     width: 100%;
-    height: 100%
-}
+    height: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3ss ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;}
 
 #player-window {
+    display: block;
+    width: 100%;
+    height: 100vh;
 }
 
 #player-parent {
@@ -59,16 +78,24 @@ button {
 }
 
 #menu-list {
-    height: 100vh
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
 }
 
 .columns.is-vcentered {
     -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
+       -ms-flex-align: center;
+          align-items: center;
+  }
 
-.list-creator-image {
-    width: 20vh;
-    height: auto
+  .list-creator-image {
+      width: 100%;
+      height: auto
+  }
+  
+img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
