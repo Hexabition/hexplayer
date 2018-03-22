@@ -5,7 +5,8 @@ class MediaController {
 
         this.video = document.getElementById(videoId);
         this.video.addEventListener('ended', () => {
-            this.next();
+            // this.next();
+            domhandler.showEndScreen()
         }, false);
 
         this.image = document.getElementById(imageId);
@@ -17,8 +18,13 @@ class MediaController {
         this.video.src = '';
     }
     next() {
-        //this.position = (this.position + 1) % this.media.length;
-        this.media = 
+        if (this.position > this.media.length - 2) {
+            this.position = 0
+        }
+        else {
+            this.position = (this.position + 1);
+
+        }
         this.show();
     }
     previous() {
@@ -28,7 +34,7 @@ class MediaController {
     }
     show() {
         this.reset();
-        let currentItem = this.media
+        let currentItem = this.media[this.position]
         let isVideo = (currentItem.type === MEDIA_TYPES.VIDEO)
         let element = isVideo ? this.video : this.image
 
@@ -77,7 +83,7 @@ class DOMHandler {
         const LINK_START_ELEMENT_STRING = `<a class="list-link" onclick="domhandler.select('${name}')">`
         const LINK_END_ELEMENT_STRING = '</a>'
         const NAME_ELEMENT_STRING = `<div class="list-name"> ${name} </div>`
-        const IMAGE_ELEMENT_STRING = `<div class="list-creator-image"><img src="${imageURL}"></div>`
+        const IMAGE_ELEMENT_STRING = `<div class="list-creator-image hexagon"><img src="${imageURL}"></div>`
         const COMBINED_ELEMENT_STRING = LINK_START_ELEMENT_STRING + IMAGE_ELEMENT_STRING + NAME_ELEMENT_STRING + LINK_END_ELEMENT_STRING
         let wrapper = document.createElement('li');
         wrapper.className += "column is-half li";
@@ -116,16 +122,59 @@ class DOMHandler {
         }
     }
     select(name) {
-        this.hideMenu()
-        controller.media = MEDIA.find(x => x.creator === name)
+        // controller.media = MEDIA.find(x => x.creator == name)
+        // let test = MEDIA.findIndex(p => p.name == name)
+        controller.position = MEDIA.findIndex(function(person) {
+            return person.creator == name
+        })
+        console.log(controller.position)
+          
         controller.show()
-
+        this.hideMenu()
     }
 
     showEndScreen() {
+        var progressValue = document.querySelector('.progress__value');
+        var endscreenDOM = document.getElementById('end-screen') 
+        endscreenDOM.style.opacity = 1
+        endscreenDOM.style.zIndex = 9999
+        var RADIUS = 54;
+        var CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+        var ctx = this
+
+        function progress(value) {
+            var progress = value / 100;
+            var dashoffset = CIRCUMFERENCE * (1 - progress);
+            
+            // console.log('progress:', value + '%', '|', 'offset:', dashoffset)
+            
+            progressValue.style.strokeDashoffset = dashoffset;
+        }
+
+        progressValue.style.strokeDasharray = CIRCUMFERENCE;
         
+        var num = 0;
+        var perMinute = 200;
+        var perSecond = perMinute / 60;
+
+
+        function update(){
+
+            num += perSecond / 10;
+            if (num < 100) {
+                progress(num);
+            }
+            else {
+                clearInterval(repeatInterval)
+                ctx.showMenu()
+                progressValue.style.strokeDasharray = CIRCUMFERENCE;
+                endscreenDOM.style.opacity = 0
+
+            }
+        }
+
+        var repeatInterval = setInterval(update, 100/perSecond);
     }
-    
 }
 
 const MEDIA_TYPES = {
@@ -137,30 +186,30 @@ const MEDIA = [
     {
         creator: 'Django 4k Müller',
         title: '4k Footage',
-        backgroundImagePath: 'testimages/bg.jpg', 
-        path: 'testimages/ibm.png',
+        backgroundImagePath: 'testimages/bg.gif', 
+        path: 'testvideos/shitfootage.mp4',
         type: MEDIA_TYPES.VIDEO
     },
     {
         creator: 'Django IBM Müller',
-        backgroundImagePath: 'testimages/bg.jpg', 
+        backgroundImagePath: 'testimages/bg.gif', 
         title: 'IBM',
-        path: 'testimages/ibm.png',
-        type: MEDIA_TYPES.IMAGE
+        path: 'testvideos/shitfootage.mp4',
+        type: MEDIA_TYPES.VIDEO
     },
     {
         creator: 'Django shitty Müller',
         title: 'Shitty Footage',
         path: 'testvideos/shitfootage.mp4',
-        backgroundImagePath: 'testimages/bg.jpg', 
+        backgroundImagePath: 'testimages/bg.gif', 
         type: MEDIA_TYPES.VIDEO
     },
     {
         creator: 'Django Dickbutt Müller',
         title: 'Dickbutt',
-        path: 'testimages/dickbutt.png',
-        backgroundImagePath: 'testimages/bg.jpg', 
-        type: MEDIA_TYPES.IMAGE
+        path: 'testvideos/shitfootage.mp4',
+        backgroundImagePath: 'testimages/bg.gif', 
+        type: MEDIA_TYPES.VIDEO
     },
 ]
 

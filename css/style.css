@@ -32,11 +32,15 @@ button {
 
 #home {
     position: absolute;
-    width: 100%;
-    left: 0;
+    /* left: 0; */
     right: 0;
-    bottom: 0;
-    margin: 0 auto;    padding: 10vh 20vh;
+    /* bottom: 0; */
+    margin: auto;
+    padding: 40px;
+    z-index: 5;
+    top: 0;
+    height: 150px;
+    width: auto;
 }
 
 #previous {
@@ -47,9 +51,14 @@ button {
 }
 
 #video, #image {
-    position: absolute;
     height: 1152px;
     width: 2048px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 #player-controls {
@@ -62,12 +71,14 @@ button {
     -moz-transition: opacity 0.3s ease-in-out;
     -ms-transition: opacity 0.3ss ease-in-out;
     -o-transition: opacity 0.3s ease-in-out;
-    transition: opacity 0.3s ease-in-out;}
+    transition: opacity 0.3s ease-in-out;
+}
 
 #player-window {
     display: block;
     width: 100%;
     height: 100vh;
+    position: relative;
 }
 
 #player-parent {
@@ -120,6 +131,111 @@ img {
 #end-screen {
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
-    width: 100vw;
-    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3ss ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
+
+#end-screen-background {
+    width: 50vw;
+    height: 100vh;
+    margin-left: auto; 
+    margin-right: auto;   
+
+}
+
+.end-image {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.end-image-tag {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.u-absoluteCenter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+  .u-flexCenter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .u-offscreen {
+    position: absolute;
+    left: -999em;
+  }
+  .demo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .demo :first-child {
+    margin-bottom: 20px;
+  }
+  .progress {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    height: 40vh !important;
+  }
+  .progress__meter,
+  .progress__value {
+    fill: none;
+  }
+  .progress__meter {
+    stroke: #e6e6e6;
+  }
+  .progress__value {
+    stroke: grey;
+    stroke-linecap: round;
+  }
+
+
+
+.hexagon {
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    width: 400px;
+    height: 400px;
+}  

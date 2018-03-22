@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>hexplayer</title>
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script defer src="js/all.js"></script>
+    <link rel="stylesheet" href="css/bulma.min.css">
     <script src="media.js"></script>
     
     <script src="js/lib/paho-mqtt-min.js"></script>
@@ -25,9 +25,8 @@
     </div>
     <div id="player">
         <div id="player-controls">
-            <button id="home" onclick="domhandler.showMenu()">Home</button>
+            <img id="home" onclick="domhandler.showMenu()" src="icons/kreuz.png">
             <button id="previous" onclick="controller.previous()">Previous</button>
-
             <button id="next" onclick="controller.next()">Next</button>
         </div>
 
@@ -36,17 +35,25 @@
             <img id="image"></img>
         </div>
         <div id="end-screen">
-            <div>
-                Next
-            </div>
-            <div>
-                Home
+            <div id="end-screen-background" class="columns">
+                <div class="end-repeat column end-image" ><img class="end-image-tag" src="icons/icon3.png"></div>
+                <div class="column end-image">
+                    <svg class="progress end-image-tag" width="120" height="120" viewBox="0 0 120 120">
+                        <circle class="progress__meter" cx="60" cy="60" r="54" stroke-width="3" />
+                        <circle class="progress__value" cx="60" cy="60" r="54" stroke-width="3" />
+                    </svg>
+            
+                </div>
+                <div class="end-next column end-image"><img class="end-image-tag" src="icons/icon.png"></div>      
             </div>
         </div>
     </div>
 </body>
-    <script>
-        const controller = new MediaController(MEDIA, 'video', 'image', 'creator', 'title');
-        const domhandler = new DOMHandler('menu', 'menu-list','player', 'player-controls', 'end-screen')
-    </script>
+<script>
+    const controller = new MediaController(MEDIA, 'video', 'image', 'creator', 'title');
+    const domhandler = new DOMHandler('menu', 'menu-list','player', 'player-controls', 'end-screen')
+    mqtt = new MqttHandler('127.0.0.1', 1884, { id: '1' })
+    mqtt.connect()
+
+</script>
 </html>

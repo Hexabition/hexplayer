@@ -2,8 +2,6 @@ class MediaController {
     constructor(media, videoId, imageId, titleId, creatorId) {
         this.media = media;
         this.position = 0;
-        this.mqtt = new MqttHandler('127.0.0.1', 1884, { id: '1' })
-        this.mqtt.connect()
 
         this.video = document.getElementById(videoId);
         this.video.addEventListener('ended', () => {
@@ -24,7 +22,6 @@ class MediaController {
     next() {
         this.position = (this.position + 1) % this.media.length;
         this.show();
-        this.mqtt.publishPlaying(true)
     }
     previous() {
         this.position = (this.position - 1);
