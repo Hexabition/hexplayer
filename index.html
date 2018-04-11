@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/all.js"></script>
     <link rel="stylesheet" href="css/bulma.min.css">
-    <script src="media.js"></script>
-    
     <script src="js/lib/paho-mqtt-min.js"></script>
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
 
+    <script src="js/media.js"></script>
     <script src="js/mqtt.js"></script>
 </head>
 <body>
@@ -26,8 +26,8 @@
     <div id="player">
         <div id="player-controls">
             <img id="home" onclick="domhandler.showMenu()" src="icons/kreuz.png">
-            <button id="previous" onclick="controller.previous()">Previous</button>
-            <button id="next" onclick="controller.next()">Next</button>
+            <img src="icons/icon.png" id="previous" onclick="controller.previous()">
+            <img src="icons/icon.png" id="next" onclick="controller.next()">
         </div>
 
         <div id="player-window" onclick="domhandler.togglePlayerControls()">
@@ -39,19 +39,20 @@
                 <div class="end-repeat column end-image" ><img class="end-image-tag" src="icons/icon3.png"></div>
                 <div class="column end-image">
                     <svg class="progress end-image-tag" width="120" height="120" viewBox="0 0 120 120">
-                        <circle class="progress__meter" cx="60" cy="60" r="54" stroke-width="3" />
-                        <circle class="progress__value" cx="60" cy="60" r="54" stroke-width="3" />
+                        <circle class="progress__meter" cx="60" cy="60" r="54" stroke-width="5" />
+                        <circle class="progress__value" cx="60" cy="60" r="54" stroke-width="5" />
                     </svg>
+                    <img id="home-icon-end" src="icons/icon2.png">
             
                 </div>
-                <div class="end-next column end-image"><img class="end-image-tag" src="icons/icon.png"></div>      
+                <div class="end-next column end-image" onclick="controller.next(); domhandler.hideEndScreen()"><img class="end-image-tag" src="icons/icon.png"></div>      
             </div>
         </div>
     </div>
 </body>
 <script>
-    const controller = new MediaController(MEDIA, 'video', 'image', 'creator', 'title');
-    const domhandler = new DOMHandler('menu', 'menu-list','player', 'player-controls', 'end-screen')
+    var controller = null
+    var domhandler = null
     mqtt = new MqttHandler('127.0.0.1', 1884, { id: '1' })
     mqtt.connect()
 

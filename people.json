@@ -1,0 +1,30 @@
+[
+    {
+       "creator": "Antonia",
+       "title": "4k Footage",
+       "backgroundImagePath": "testimages/Hexabition_gifs/Antonia.gif",
+       "path": "testvideos/4kfootage.mp4",
+       "type": "video"
+    },
+    {
+       "creator": "Daniel",
+       "backgroundImagePath": "testimages/Hexabition_gifs/Duniel.gif",
+       "title": "IBM",
+       "path": "testvideos/shitfootage.mp4",
+       "type": "video"
+    },
+    {
+       "creator": "Florentin",
+       "title": "Shitty Footage",
+       "backgroundImagePath": "testimages/Hexabition_gifs/Florentin.gif",
+       "path": "testvideos/4kfootage.mp4",
+       "type": "video"
+    },
+    {
+       "creator": "Laurenz",
+       "title": "Dickbutt",
+       "path": "testvideos/shitfootage.mp4",
+       "backgroundImagePath": "testimages/Hexabition_gifs/Laurenz-Kobza.gif",
+       "type": "video"
+    }
+ ]

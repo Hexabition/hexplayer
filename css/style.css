@@ -27,7 +27,7 @@ button {
     position: absolute;
     bottom: 0;
     right: 0;
-    padding: 10vh 20vh;
+    padding: 10vh 30vh;
 }
 
 #home {
@@ -47,7 +47,14 @@ button {
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 10vh 20vh;    
+    padding: 10vh 30vh;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+
 }
 
 #video, #image {
@@ -62,6 +69,7 @@ button {
 }
 
 #player-controls {
+    z-index: 5;
     position: absolute;
     display: none;
     width: 100%;
@@ -136,6 +144,7 @@ img {
     right: 0;
     bottom: 0;
     opacity: 0;
+    display: none;
     z-index: -1;
     -webkit-transition: opacity 0.3s ease-in-out;
     -moz-transition: opacity 0.3s ease-in-out;
@@ -224,13 +233,26 @@ img {
     fill: none;
   }
   .progress__meter {
-    stroke: #e6e6e6;
+    stroke: black;
   }
   .progress__value {
-    stroke: grey;
-    stroke-linecap: round;
+    stroke: #00FF01;
   }
 
+
+  .progress {
+      margin: auto !important
+  } 
+
+  #home-icon-end {
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
 
 
 .hexagon {
