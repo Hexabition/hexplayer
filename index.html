@@ -25,9 +25,9 @@
     </div>
     <div id="player">
         <div id="player-controls">
-            <img id="home" onclick="domhandler.showMenu()" src="icons/kreuz.png">
-            <img src="icons/icon.png" id="previous" onclick="controller.previous()">
-            <img src="icons/icon.png" id="next" onclick="controller.next()">
+            <img id="home" class="button-image" onclick="domhandler.showMenu()" src="icons/kreuz.png">
+            <img src="icons/icon.png" id="previous" class="button-image" onclick="controller.previous()">
+            <img src="icons/icon.png" id="next" class="button-image" onclick="controller.next()">
         </div>
 
         <div id="player-window" onclick="domhandler.togglePlayerControls()">
@@ -36,7 +36,7 @@
         </div>
         <div id="end-screen">
             <div id="end-screen-background" class="columns">
-                <div class="end-repeat column end-image" ><img class="end-image-tag" src="icons/icon3.png"></div>
+                <div class="end-repeat column end-image" onclick="controller.repeat(); domhandler.hideEndScreen()"><img class="end-image-tag" src="icons/icon3.png"></div>
                 <div class="column end-image">
                     <svg class="progress end-image-tag" width="120" height="120" viewBox="0 0 120 120">
                         <circle class="progress__meter" cx="60" cy="60" r="54" stroke-width="5" />

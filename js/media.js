@@ -25,6 +25,9 @@ class MediaController {
         }
         this.show();
     }
+    repeat() {
+        this.show()
+    }
     previous() {
         this.position = (this.position - 1);
         if (this.position < 0) {
