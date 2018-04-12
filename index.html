@@ -24,7 +24,7 @@
         </ul>
     </div>
     <div id="player">
-        <div id="player-controls">
+        <div id="player-controls" onclick="domhandler.togglePlayerControls()">
             <img id="home" class="button-image" onclick="domhandler.showMenu()" src="icons/kreuz.png">
             <img src="icons/icon.png" id="previous" class="button-image" onclick="controller.previous()">
             <img src="icons/icon.png" id="next" class="button-image" onclick="controller.next()">
@@ -42,7 +42,7 @@
                         <circle class="progress__meter" cx="60" cy="60" r="54" stroke-width="5" />
                         <circle class="progress__value" cx="60" cy="60" r="54" stroke-width="5" />
                     </svg>
-                    <img id="home-icon-end" src="icons/icon2.png">
+                    <img id="home-icon-end" onclick="domhandler.showMenu()" src="icons/icon2.png">
             
                 </div>
                 <div class="end-next column end-image" onclick="controller.next(); domhandler.hideEndScreen()"><img class="end-image-tag" src="icons/icon.png"></div>      

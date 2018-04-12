@@ -119,7 +119,7 @@ class DOMHandler {
 
     }
     togglePlayerControls() {
-        if (this.playerControlsElement.style.opacity == 1) {
+        if (this.playerControlsElement.style.display !== 'none') {
             this.hidePlayerControls()
             if (this.hasOwnProperty('hidePlayerTimeout')) {
                 clearTimeout(this.hidePlayerTimeout);
