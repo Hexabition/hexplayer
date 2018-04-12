@@ -1,6 +1,6 @@
 class MqttHandler {
     constructor(hostname, port, config) {
-        this.topic = `/tablet/${config.id}`
+        this.topic = `/hexabition/cell/${config.id}`
         this.client = new Paho.MQTT.Client(hostname, port, config.id);
         this.client.onConnectionLost = this.onConnectionLost;
         this.client.onMessageArrived = this.onMessageArrived;
@@ -29,7 +29,9 @@ class MqttHandler {
         console.log(`MQTT: Message: ${message.payloadString}`);
     }
     onPlaying(playing){
-        let payload = playing ? 'PLAYING' : 'STOPPED'
-        this.client.publish(this.topic, payload, 0, true)
+        let payload = playing ? '#FF00' : '#00FF'
+        let message = new Paho.MQTT.Message(payload);
+        message.destinationName = this.topic;
+        this.client.publish(message)
     }
 }

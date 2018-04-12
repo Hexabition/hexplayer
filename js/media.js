@@ -6,12 +6,12 @@ class MediaController {
         this.video.addEventListener('ended', () => {
             // this.next();
             domhandler.showEndScreen()
-            mqtt.onPlaying(false)
+            // mqtt.onPlaying(false)
 
         }, false);
         this.video.addEventListener('playing', ()=> {
             console.log('playing')
-            mqtt.onPlaying(true)
+            // mqtt.onPlaying(true)
         })
 
 
@@ -83,7 +83,7 @@ class DOMHandler {
         this.menuElement.style.display = 'block';
         this.playerElement.style.display = 'none';
         controller.reset()
-        mqtt.onPlaying(false)
+        // mqtt.onPlaying(false)
     }
     hideMenu() {
         this.menuElement.style.display = 'none';
@@ -126,7 +126,7 @@ class DOMHandler {
 
     }
     togglePlayerControls() {
-        if (this.playerControlsElement.style.display !== 'none') {
+        if (this.playerControlsElement.style.opacity == 1) {
             this.hidePlayerControls()
             if (this.hasOwnProperty('hidePlayerTimeout')) {
                 clearTimeout(this.hidePlayerTimeout);
@@ -134,6 +134,7 @@ class DOMHandler {
         } else {
             const ctx = this
             this.showPlayerControls()
+
             this.hidePlayerTimeout = setTimeout(function () {
                 console.log(this.hidePlayerTimeout)
                 ctx.hidePlayerControls()
