@@ -6,7 +6,14 @@ class MediaController {
         this.video.addEventListener('ended', () => {
             // this.next();
             domhandler.showEndScreen()
+            mqtt.onPlaying(false)
+
         }, false);
+        this.video.addEventListener('playing', ()=> {
+            console.log('playing')
+            mqtt.onPlaying(true)
+        })
+
 
         this.image = document.getElementById(imageId);
         this.title = document.getElementById(titleId);
@@ -34,7 +41,6 @@ class MediaController {
             this.position = this.media.length - 1
         }
         this.show();
-        this.mqtt.publishPlaying(false)
 
     }
     show() {
@@ -77,6 +83,7 @@ class DOMHandler {
         this.menuElement.style.display = 'block';
         this.playerElement.style.display = 'none';
         controller.reset()
+        mqtt.onPlaying(false)
     }
     hideMenu() {
         this.menuElement.style.display = 'none';

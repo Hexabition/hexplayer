@@ -28,7 +28,7 @@ class MqttHandler {
     onMessageArrived(message) {
         console.log(`MQTT: Message: ${message.payloadString}`);
     }
-    publishPlaying(playing){
+    onPlaying(playing){
         let payload = playing ? 'PLAYING' : 'STOPPED'
         this.client.publish(this.topic, payload, 0, true)
     }
