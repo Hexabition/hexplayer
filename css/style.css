@@ -113,6 +113,7 @@ button {
 
 #menu-list {
     margin: auto;
+    height: 500px;
 }
 
 
@@ -123,11 +124,14 @@ button {
           align-items: center;
   }
 
-  .list-creator-image {
-    width: 50%;
+.list-creator-image {
+    width: 70%;
     margin: auto
-  }
+}
   
+.is-half .list-creator-image {
+    width: 50%
+}
 
 img {
     margin-left: auto;
