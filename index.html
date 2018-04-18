@@ -13,6 +13,7 @@
     <script src="js/lib/paho-mqtt-min.js"></script>
     <script src="js/lib/jquery-3.3.1.min.js"></script>
 
+    <script src="js/domhandler.js"></script>
     <script src="js/media.js"></script>
     <script src="js/mqtt.js"></script>
 </head>
@@ -51,10 +52,20 @@
     </div>
 </body>
 <script>
+    var config = null
     var controller = null
     var domhandler = null
-    mqtt = new MqttHandler('127.0.0.1', 1884, { id: '0' })
-    mqtt.connect()
 
+    $.getJSON("config.json", (data) => {
+        config = data
+    }).then(() => {
+        mqtt = new MqttHandler(config)
+        mqtt.connect(() => {
+            controller = new MediaController(config, 'video', 'image', 'creator', 'title');
+            domhandler = new DOMHandler(config, 'menu', 'menu-list', 'player', 'player-controls', 'end-screen')
+        })
+    })
+
+   
 </script>
 </html>
