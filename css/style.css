@@ -167,7 +167,8 @@ img {
 
 #menu-title {
     width: auto;
-    height: 200px
+    display: list-item;
+    padding-top: 80px;
 }
 
 #end-screen {
