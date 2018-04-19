@@ -49,14 +49,23 @@ class MqttHandler {
     onPlaying(playing){
         if (config.animation) { return }
         this.playing = playing;
-        let payload = playing ? '#00FF': '#FF00'
-        let message = new Paho.MQTT.Message(payload);
-        message.destinationName = this.topic;
         if(!this.connected) { 
             console.log(`MQTT: Message Error: Client not Connected!`);
             return
         }
+        let payload = playing ? '#00FF': '#FF00';
         console.log(`MQTT: Message Outgoing: ${payload}`);
+        if (playing) {
+            for(let i; i<8; i++) {
+                let topic = `/hexabition/cell/${i}`
+                let message = new Paho.MQTT.Message(payload);
+                message.destinationName = topic;
+                this.client.publish(message)
+
+            }
+        }
+        let message = new Paho.MQTT.Message(payload);
+        message.destinationName = this.topic;
         this.client.publish(message)
     }
 }
