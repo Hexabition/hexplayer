@@ -56,7 +56,7 @@
     var controller = null
     var domhandler = null
 
-    $.getJSON("config.json", (data) => {
+    $.getJSON("test_config.json", (data) => {
         config = data
     }).then(() => {
         mqtt = new MqttHandler(config)
