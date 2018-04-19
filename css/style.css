@@ -167,6 +167,7 @@ img {
 
 #menu-title {
     width: auto;
+    height: 140px;
     display: list-item;
     padding-top: 80px;
 }
