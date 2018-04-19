@@ -35,7 +35,13 @@ class DOMHandler {
         const IMAGE_ELEMENT_STRING = `<div class="list-creator-image hexagon"><img src="${imageURL}"></div>`
         const COMBINED_ELEMENT_STRING = LINK_START_ELEMENT_STRING + IMAGE_ELEMENT_STRING + LINK_END_ELEMENT_STRING
         let wrapper = document.createElement('li');
-        wrapper.className += "column is-half li";
+        wrapper.className += "column li";
+        if (this.config.people.length <= 4) {
+            wrapper.className += " is-half";
+        } else {
+            wrapper.className += " is-one-third";
+
+        }
 
         wrapper.innerHTML = COMBINED_ELEMENT_STRING;
         return wrapper;
