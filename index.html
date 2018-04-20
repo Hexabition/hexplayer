@@ -61,8 +61,12 @@
     }).then(() => {
         mqtt = new MqttHandler(config)
         mqtt.connect(() => {
-            controller = new MediaController(config, 'video', 'image', 'creator', 'title');
-            domhandler = new DOMHandler(config, 'menu', 'menu-list', 'player', 'player-controls', 'end-screen')
+            if(!controller) {
+                controller = new MediaController(config, 'video', 'image', 'creator', 'title');
+            }
+            if(!domhandler) {
+                domhandler = new DOMHandler(config, 'menu', 'menu-list', 'player', 'player-controls', 'end-screen')
+            }
         })
     })
 
