@@ -1,9 +1,9 @@
 class MqttHandler {
     constructor(config) {
         this.config = config
-        if (config.people) {
+        if (this.config.people) {
             this.topic = `/hexabition/cell/${config.id}`
-        } else if (config.animation) {
+        } else if (this.config.animation) {
             this.topic = `/hexabition/animation`
         }
         console.log(this.topic)
@@ -47,7 +47,7 @@ class MqttHandler {
         }
     }
     onPlaying(playing){
-        if (config.animation) { return }
+        if (this.config.animation) { return }
         this.playing = playing;
         if(!this.connected) { 
             console.log(`MQTT: Message Error: Client not Connected!`);
