@@ -53,10 +53,12 @@ class MqttHandler {
             console.log(`MQTT: Message Error: Client not Connected!`);
             return
         }
-        let payload = playing ? '#00FF': '#FF00';
-        console.log(`MQTT: Message Outgoing: ${payload}`);
-        let message = new Paho.MQTT.Message(payload);
-        message.destinationName = this.topic;
-        this.client.publish(message)
+        if (playing) {
+            let payload = 'FLASH';
+            console.log(`MQTT: Message Outgoing: ${payload}`);
+            let message = new Paho.MQTT.Message(payload);
+            message.destinationName = this.topic;
+            this.client.publish(message)
+        }
     }
 }
